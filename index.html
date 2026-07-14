@@ -1,11 +1,315 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tankou Kyotsuki | Personal Homepage</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Personal homepage of Zhenjie Zhang (@Kyotsuki-Tankou), incoming Ph.D. student at Fudan University & SII, specializing in LLM mechanisms (XAI), Bioinformatics, and Recommendation Systems.">
+    <meta name="keywords"
+        content="Zhenjie Zhang, Kyotsuki-Tankou, Fudan University, Nankai University, Bioinformatics, LLM, XAI, Machine Learning, Computer Science">
+    <meta name="author" content="Zhenjie Zhang">
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Hello World.</h1>
-    <p>Test</p>
+
+    <!-- Soft Background Ambient Lights -->
+    <div class="ambient-light light-1"></div>
+    <div class="ambient-light light-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="nav-logo">
+                Tankou <span>Kyotsuki</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#publications" class="nav-link">Publications</a></li>
+                <li><a href="#patents-awards" class="nav-link">Patents & Awards</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <button class="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="main-layout container">
+        <!-- Left Column: Profile, Publications, Patents & Awards -->
+        <div class="layout-left">
+
+            <!-- About Me Section -->
+            <section class="about reveal" id="about">
+                <div class="section-header">
+                    <h2 class="section-title">Profile</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-left">
+                        <div class="minimal-card bio-card">
+                            <div class="card-label">Biography</div>
+                            <p>
+                                I received my B.Eng. in Computer Science within the <strong>Excellent Computer Science
+                                    Class</strong> at Nankai University (Jun 2026). Currently, I am heading to Fudan
+                                University & Shanghai Innovation Institute (SII) to pursue my Ph.D.
+                            </p>
+                            <p>
+                                My research is centered around interpretable models and computational biology. Over the
+                                course of my studies and research, I have had the opportunity to collaborate with
+                                several
+                                labs as a research attachment.
+                            </p>
+
+                            <div class="timeline"
+                                style="margin-top: 1.5rem; gap: 1.5rem; border-left: 1.5px solid var(--border-light);">
+                                <div class="timeline-item" style="padding-left: 0.5rem;">
+                                    <div class="timeline-dot"></div>
+                                    <h4 style="font-size: 1rem; font-weight: 700;">Center for Bioinformatics and
+                                        Intelligent
+                                        Medicine</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Nankai University •
+                                        Research Attachment</p>
+                                </div>
+                                <div class="timeline-item" style="padding-left: 0.5rem;">
+                                    <div class="timeline-dot"></div>
+                                    <h4 style="font-size: 1rem; font-weight: 700;">Psychiatry & AI Research Group</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary);">The Chinese University
+                                        of
+                                        Hong Kong (CUHK) • Research Attachment</p>
+                                </div>
+                                <div class="timeline-item" style="padding-left: 0.5rem;">
+                                    <div class="timeline-dot"></div>
+                                    <h4 style="font-size: 1rem; font-weight: 700;">ALEX Research Lab</h4>
+                                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Fudan University & SII
+                                        •
+                                        Research Attachment</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-right">
+                        <div class="minimal-card">
+                            <div class="card-label">Academic Timeline</div>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-date">2022 - 2026</div>
+                                    <div class="timeline-title">B.Eng. in Computer Science</div>
+                                    <div class="timeline-subtitle">Nankai University</div>
+                                    <div class="timeline-desc">Graduated from the Excellent Computer Science Class.
+                                        Received
+                                        Outstanding Graduation Thesis.
+                                    </div>
+                                </div>
+
+                                <div class="timeline-item">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-date">2026 - Present</div>
+                                    <div class="timeline-title">Ph.D. Candidate in Computer Science</div>
+                                    <div class="timeline-subtitle">Fudan University & SII</div>
+                                    <div class="timeline-desc">Incoming Ph.D.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Research & Publications Section -->
+            <section class="publications reveal" id="publications">
+                <div class="section-header">
+                    <h2 class="section-title">Selected Publication</h2>
+                </div>
+
+                <div class="publications-container">
+                    <!-- Single Featured Card -->
+                    <div class="minimal-card pub-card">
+                        <div class="card-label">Featured Article</div>
+                        <div>
+                            <div class="pub-badge-container">
+                                <span class="pub-badge badge-first-author">Joint First Author</span>
+                                <span class="pub-badge badge-journal">Nucleic Acids Research</span>
+                            </div>
+
+                            <h3 class="pub-title">
+                                <a href="https://doi.org/10.1093/nar/gkae986" target="_blank" rel="noopener noreferrer">
+                                    Pairpot: a database with real-time lasso-based analysis tailored for paired
+                                    single-cell
+                                    and spatial transcriptomics
+                                </a>
+                            </h3>
+
+                            <div class="pub-authors">
+                                Zhihan Ruan, Fan Lin, <strong>Zhenjie Zhang</strong>, Jiayue Cao, Wenting Xiang, Xiaoyi
+                                Wei,
+                                Jian Liu
+                            </div>
+
+                            <div class="pub-journal-meta">
+                                Nucleic Acids Research, Volume 53, Issue D1, 6 January 2025, Pages D1087–D1098
+                            </div>
+
+                            <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem;">
+                                Developed a user-friendly single-cell and spatial transcriptomics pair analysis
+                                platform.
+                            </p>
+
+                            <div class="pub-links">
+                                <a href="https://doi.org/10.1093/nar/gkae986" class="pub-link-btn" target="_blank"
+                                    rel="noopener noreferrer">
+                                    DOI Link
+                                </a>
+                                <a href="https://academic.oup.com/nar/article/53/D1/D1087/7887754" class="pub-link-btn"
+                                    target="_blank" rel="noopener noreferrer">
+                                    Read Article
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Patents & Awards Section -->
+            <section class="patents-awards reveal" id="patents-awards">
+                <div class="section-header">
+                    <h2 class="section-title">Patents & Awards</h2>
+                </div>
+
+                <div class="patents-awards-grid">
+                    <!-- Patents Column -->
+                    <div class="patents-column">
+                        <h3 class="column-subheader">Patents</h3>
+
+                        <div class="minimal-card patent-card">
+                            <span class="patent-badge">Student First Inventor</span>
+                            <h4 class="patent-title">
+                                Method and system for reconstructing low-dimensional representations based on
+                                high-throughput sequencing and heuristic approaches
+                            </h4>
+                            <div class="patent-inventors">
+                                Jian Liu, <strong>Zhenjie Zhang</strong>, Zhihan Ruan
+                            </div>
+                            <div class="patent-meta">
+                                Invention Patent CN202510710033 • 2025
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Awards Column -->
+                    <div class="awards-column">
+                        <h3 class="column-subheader">Selected Honors</h3>
+
+                        <div class="minimal-card awards-list">
+                            <div class="award-item-card">
+                                <span class="award-bullet">&gt;</span>
+                                <div class="award-details">
+                                    <span class="award-title">Bronze Medal</span>
+                                    <div class="award-meta">
+                                        The 2023 ICPC Asia Xi'an Regional Contest • <span>Oct 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="award-item-card">
+                                <span class="award-bullet">&gt;</span>
+                                <div class="award-details">
+                                    <span class="award-title">Bronze Medal</span>
+                                    <div class="award-meta">
+                                        The 2023 ICPC Asia Hefei Regional Contest • <span>Nov 2023</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="award-item-card">
+                                <span class="award-bullet">&gt;</span>
+                                <div class="award-details">
+                                    <span class="award-title">National-Level Innovation Program</span>
+                                    <div class="award-meta">
+                                        Video Painting in High-speed Moving Scenes • <span>2025</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="award-item-card">
+                                <span class="award-bullet">&gt;</span>
+                                <div class="award-details">
+                                    <span class="award-title">Outstanding Graduation Thesis</span>
+                                    <div class="award-meta">
+                                        Nankai University • <span>Jun 2026</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Right Column: Hero Card and Contact Card -->
+        <div class="layout-right">
+            <!-- Hero / Sidebar Profile Section -->
+            <div class="minimal-card hero-sidebar-card" id="home">
+                <h1 class="hero-title">Tankou Kyotsuki.</h1>
+                <div class="hero-subtitle" id="typing-text"></div>
+            </div>
+
+            <!-- Contact / Sidebar Get in Touch Section -->
+            <div class="minimal-card contact-sidebar-card reveal" id="contact">
+                <h3 class="column-subheader" style="margin-bottom: 1.25rem;">Get in Touch</h3>
+
+                <div class="email-boxes">
+                    <!-- GitHub box -->
+                    <a href="https://github.com/Kyotsuki-Tankou" target="_blank" rel="noopener noreferrer"
+                        class="social-box">
+                        <span class="social-address"><i class="fa-brands fa-github"></i> GitHub</span>
+                    </a>
+
+                    <!-- Gmail box -->
+                    <div class="email-box">
+                        <span class="email-address"><i class="fa-regular fa-envelope"
+                                style="margin-right: 0.5rem;"></i>kyotsukitankou@gmail.com</span>
+                    </div>
+
+                    <!-- Outlook box -->
+                    <div class="email-box">
+                        <span class="email-address"><i class="fa-regular fa-envelope"
+                                style="margin-right: 0.5rem;"></i>kyotsukitankou@outlook.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home" class="footer-link">Home</a>
+                <a href="#about" class="footer-link">About</a>
+                <a href="#publications" class="footer-link">Publications</a>
+                <a href="#patents-awards" class="footer-link">Patents & Awards</a>
+            </div>
+            <p>&copy; Designed by Kyotsuki Tankou in <ruby>Gensokyo<rt><del>Gemini</del></rt></ruby>.</p>
+        </div>
+    </footer>
+
+    <!-- Script Resource -->
+    <script src="main.js"></script>
 </body>
+
 </html>
