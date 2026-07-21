@@ -504,6 +504,95 @@ const initNavigation = () => {
 };
 
 // ==========================================
+// BACKGROUND SCROLL TRANSITIONS
+// ==========================================
+const initBackgroundTransitions = () => {
+  const bgBaseEl = document.getElementById('bg-base');
+  const bgNewsEl = document.getElementById('bg-news');
+  const bgPubsEl = document.getElementById('bg-publications');
+  const intro = document.getElementById('intro');
+  const news = document.getElementById('news');
+  const publications = document.getElementById('publications');
+  const patents = document.getElementById('patents-awards');
+
+  const updateBackgrounds = () => {
+    if (!intro || !news || !publications || !patents) return;
+
+    const scrollY = window.scrollY;
+    const H = window.innerHeight;
+    const Y = scrollY + H / 2;
+
+    const B1 = news.offsetTop;
+    const B2 = publications.offsetTop;
+    const B3 = patents.offsetTop;
+
+    // Calculate transition half-widths to prevent overlaps
+    const W1 = Math.min(H * 0.5, B1 * 0.5);
+    const W2 = Math.min(H * 0.5, (B2 - B1) * 0.5);
+    const W3 = Math.min(H * 0.5, (B3 - B2) * 0.5);
+
+    let baseOpacity = 0;
+    let newsOpacity = 0;
+    let pubOpacity = 0;
+
+    if (Y <= B1 - W1) {
+      baseOpacity = 1;
+      newsOpacity = 0;
+      pubOpacity = 0;
+    } else if (Y > B1 - W1 && Y <= B1 + W1) {
+      const t = (Y - (B1 - W1)) / (2 * W1);
+      baseOpacity = 1 - t;
+      newsOpacity = t;
+      pubOpacity = 0;
+    } else if (Y > B1 + W1 && Y <= B2 - W2) {
+      baseOpacity = 0;
+      newsOpacity = 1;
+      pubOpacity = 0;
+    } else if (Y > B2 - W2 && Y <= B2 + W2) {
+      const t = (Y - (B2 - W2)) / (2 * W2);
+      baseOpacity = 0;
+      newsOpacity = 1 - t;
+      pubOpacity = t;
+    } else if (Y > B2 + W2 && Y <= B3 - W3) {
+      baseOpacity = 0;
+      newsOpacity = 0;
+      pubOpacity = 1;
+    } else if (Y > B3 - W3 && Y <= B3 + W3) {
+      const t = (Y - (B3 - W3)) / (2 * W3);
+      baseOpacity = t;
+      newsOpacity = 0;
+      pubOpacity = 1 - t;
+    } else {
+      baseOpacity = 1;
+      newsOpacity = 0;
+      pubOpacity = 0;
+    }
+
+    if (bgBaseEl) bgBaseEl.style.opacity = baseOpacity.toFixed(3);
+    if (bgNewsEl) bgNewsEl.style.opacity = newsOpacity.toFixed(3);
+    if (bgPubsEl) bgPubsEl.style.opacity = pubOpacity.toFixed(3);
+  };
+
+  let ticking = false;
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateBackgrounds();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('resize', updateBackgrounds);
+  window.addEventListener('load', updateBackgrounds);
+
+  // Initial update
+  updateBackgrounds();
+};
+
+// ==========================================
 // INIT APP
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
@@ -527,4 +616,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollReveal();
   initEmailCopy();
   initNavigation();
+  initBackgroundTransitions();
 });

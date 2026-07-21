@@ -52,16 +52,53 @@ html {
 }
 
 body {
-  background-image: linear-gradient(rgba(252, 252, 251, 0.85), rgba(252, 252, 251, 0.85)), url('bg.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
   background-color: var(--bg-base);
   color: var(--text-primary);
   font-family: var(--font-body);
   overflow-x: hidden;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================
+   FIXED TRANSITIONAL BACKGROUNDS
+   ========================================== */
+.fixed-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3; /* behind ambient lights at z-index: -2 and content */
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.fixed-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
+.fixed-bg.bg-base {
+  background-image: linear-gradient(rgba(252, 252, 251, 0.85), rgba(252, 252, 251, 0.85)), url('bg.jpg');
+  background-position: center top;
+}
+
+.fixed-bg.bg-news {
+  background-image: linear-gradient(rgba(20, 20, 25, 0.85), rgba(20, 20, 25, 0.85)), url('assets/night.jpg');
+}
+
+.fixed-bg.bg-publications {
+  background-image: linear-gradient(rgba(252, 252, 251, 0.85), rgba(252, 252, 251, 0.85)), url('assets/yakumo.png');
 }
 
 /* Custom Scrollbar */
@@ -710,7 +747,7 @@ section {
    NEWS SECTION (HORIZONTAL SLIDER / MODAL LIST)
    ========================================== */
 .news_wrapper {
-  background-color: var(--text-primary); /* Deep blackish charcoal background */
+  background-color: transparent;
   color: #ffffff;
   position: relative; /* relative positioning for far-left screen alignment */
 }
