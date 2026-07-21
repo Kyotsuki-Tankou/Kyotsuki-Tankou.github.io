@@ -710,8 +710,17 @@ section {
    NEWS SECTION (HORIZONTAL SLIDER / MODAL LIST)
    ========================================== */
 .news_wrapper {
-  background: transparent;
+  background-color: var(--text-primary); /* Deep blackish charcoal background */
+  color: #ffffff;
   position: relative; /* relative positioning for far-left screen alignment */
+}
+
+.news_wrapper .news_title {
+  color: #ffffff;
+}
+
+.news_wrapper .news_sub_title_style1 {
+  color: var(--accent-sky);
 }
 
 .news_box {
@@ -732,14 +741,18 @@ section {
   font-size: 0.88rem;
   line-height: 2.3;
   letter-spacing: 0.18em;
-  color: var(--text-muted);
-  opacity: 0.65;
+  color: rgba(255, 255, 255, 0.45);
+  opacity: 0.75;
   transition: var(--transition-normal);
 }
 
 .news-vertical-poem:hover {
   opacity: 0.95;
-  color: var(--text-primary);
+  color: #ffffff;
+}
+
+.news-vertical-poem rt {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* Slider outer wrapper with absolute buttons */
@@ -758,25 +771,25 @@ section {
   width: 46px;
   height: 46px;
   border-radius: 50%;
-  border: 1px solid var(--border-light);
-  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  color: var(--text-primary);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: var(--transition-smooth);
 }
 
 .slider-arrow:hover {
   background-color: var(--accent-sky);
   border-color: var(--accent-sky);
-  color: #ffffff;
-  box-shadow: 0 8px 25px rgba(124, 160, 209, 0.25);
+  color: var(--text-primary);
+  box-shadow: 0 8px 25px rgba(124, 160, 209, 0.35);
   transform: translateY(-50%) scale(1.08);
 }
 
@@ -819,10 +832,37 @@ section {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.01);
 }
 
-.news_info_box:hover {
+.news_wrapper .news_info_box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.news_wrapper .news_info_box:hover {
   transform: translateY(-4px);
-  border-color: var(--border-active);
-  box-shadow: 0 15px 35px rgba(124, 160, 209, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(124, 160, 209, 0.5);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.news_wrapper .news-title-text {
+  color: #ffffff;
+}
+
+.news_wrapper .news-subtitle-text {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.news_wrapper .news-desc {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.news_wrapper .news-loc {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.news_wrapper .news_data {
+  color: rgba(255, 255, 255, 0.55);
 }
 
 /* News visual empty placeholder frame */
@@ -831,8 +871,8 @@ section {
   height: 90px;
   flex-shrink: 0;
   border-radius: 6px;
-  border: 1px solid var(--border-light);
-  background: linear-gradient(135deg, var(--bg-base) 0%, rgba(124, 160, 209, 0.08) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(124, 160, 209, 0.08) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -854,6 +894,19 @@ section {
 
 .placeholder-icon i {
   font-size: 1.8rem;
+}
+
+.news-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* changed from cover to show the whole image */
+  opacity: 0.9;
+  transition: var(--transition-smooth);
+}
+
+.news_info_box:hover .news-thumb-img {
+  transform: scale(1.04);
+  opacity: 1;
 }
 
 /* News content details */
@@ -976,9 +1029,9 @@ section {
   letter-spacing: 0.15em;
   font-weight: 600;
   text-transform: uppercase;
-  color: var(--text-primary);
+  color: #ffffff;
   text-decoration: none;
-  border: 1px solid var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   padding: 11px 28px;
   border-radius: 4px;
   transition: var(--transition-normal);
@@ -986,10 +1039,10 @@ section {
 }
 
 .news_all_btn:hover {
-  background-color: var(--text-primary);
-  color: #ffffff;
-  border-color: var(--text-primary);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  background-color: #ffffff;
+  color: var(--text-primary);
+  border-color: #ffffff;
+  box-shadow: 0 8px 25px rgba(255,255,255,0.1);
 }
 
 /* ==========================================
@@ -1195,8 +1248,8 @@ section {
    PUBLICATIONS SECTION (MOVIE WRAPPER)
    ========================================== */
 .movie_wrapper {
-  background-color: var(--text-primary); /* Deep blackish charcoal background for visual contrast */
-  color: #ffffff;
+  background-color: transparent;
+  color: var(--text-primary);
   position: relative; /* relative positioning for far-right screen alignment */
 }
 
@@ -1211,14 +1264,14 @@ section {
   font-size: 0.88rem;
   line-height: 2.3;
   letter-spacing: 0.18em;
-  color: rgba(255, 255, 255, 0.45);
-  opacity: 0.75;
+  color: var(--text-muted);
+  opacity: 0.65;
   transition: var(--transition-normal);
 }
 
 .publications-vertical-poem:hover {
   opacity: 0.95;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .publications-vertical-poem ruby {
@@ -1229,11 +1282,11 @@ section {
   font-size: 0.52em;
   font-family: inherit;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-muted);
 }
 
 .movie_wrapper .movie_title {
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .movie_wrapper .movie_sub_title_style1 {
@@ -1256,20 +1309,21 @@ section {
 }
 
 .movie_box {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-solid);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: var(--transition-smooth);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.01);
 }
 
 .movie_box:hover {
   transform: translateY(-6px);
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(124, 160, 209, 0.5);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: var(--bg-solid);
+  border-color: var(--border-active);
+  box-shadow: 0 15px 35px rgba(124, 160, 209, 0.12);
 }
 
 /* Movie-like thumbnail card cover */
@@ -1293,6 +1347,23 @@ section {
   width: 100%;
   height: 100%;
   background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+}
+
+.pub-thumb-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* changed from cover to show the whole image */
+  opacity: 0.9;
+  transition: var(--transition-smooth);
+  z-index: 1;
+}
+
+.movie_box:hover .pub-thumb-img {
+  transform: scale(1.03);
+  opacity: 1;
 }
 
 .movie-card-overlay {
@@ -1372,20 +1443,20 @@ section {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   line-height: 1.5;
-  color: #ffffff;
+  color: var(--text-primary);
   margin-bottom: 12px;
   font-weight: 500;
 }
 
 .pub-authors-text {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   margin-bottom: 8px;
   line-height: 1.5;
 }
 
 .pub-authors-text strong {
-  color: #ffffff;
+  color: var(--text-primary);
   text-decoration: underline;
   text-decoration-color: var(--accent-sky);
   text-underline-offset: 3px;
@@ -1400,7 +1471,7 @@ section {
 
 .pub-description-text {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 20px;
 }
@@ -1410,7 +1481,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border-light);
   padding-top: 15px;
 }
 
@@ -1419,10 +1490,10 @@ section {
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.5px;
-  color: #ffffff;
+  color: var(--text-primary);
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-light);
   padding: 6px 12px;
   border-radius: 4px;
   transition: var(--transition-normal);
@@ -1434,7 +1505,7 @@ section {
 .pub-link-btn:hover {
   background: var(--accent-sky);
   border-color: var(--accent-sky);
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {

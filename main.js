@@ -113,6 +113,7 @@ const timelineData = [
     startDate: "2026-06",
     displayDate: "Jun. 2026",
     location: "Tianjin, China",
+    image: "assets/papers/thesis.png",
     desc: "Awarded for the graduation thesis: 'Few-shot Enhanced Annotation and Embedding Reconstruction in scRNA-seq' (completed in the Junior year, one year ahead of schedule)."
   },
   {
@@ -122,6 +123,7 @@ const timelineData = [
     startDate: "2025-01",
     displayDate: "Jan. 2025",
     location: "Nucleic Acids Research",
+    image: "assets/papers/pairpot.png",
     desc: "Published as Joint First Author in Nucleic Acids Research (JCR-Q1, IF=16.6). Developed the web-based database and real-time analysis platform."
   },
   {
@@ -131,6 +133,7 @@ const timelineData = [
     startDate: "2025-06",
     displayDate: "Jun. 2025",
     location: "Nankai University",
+    image: "assets/papers/thesis.png",
     desc: "Completed the graduation thesis early in the Junior year (one year ahead of schedule), investigating low-data single-cell annotation."
   },
   {
@@ -156,6 +159,7 @@ const publicationData = [
     authors: "Zhihan Ruan, Fan Lin, <strong>Zhenjie Zhang</strong>, Jiayue Cao, Wenting Xiang, Xiaoyi Wei, Jian Liu*",
     note: "The first three authors should be regarded as Joint First Authors.",
     desc: "Developed an interactive web-based database and real-time analysis platform to integrate and interrogate paired single-cell and spatial transcriptomics datasets.",
+    image: "assets/papers/pairpot.png",
     links: [
       { text: "DOI Link", url: "https://doi.org/10.1093/nar/gkae986" },
       { text: "Read Article", url: "https://academic.oup.com/nar/article/53/D1/D1087/7887754" }
@@ -169,6 +173,7 @@ const publicationData = [
     authors: "<strong>Zhenjie Zhang</strong>",
     note: "Recipient of the Outstanding Graduation Thesis award (completed in the Junior year, one year ahead of schedule).",
     desc: "Completed all course and thesis requirements early in the Junior year. Investigated low-data regimes for single-cell annotation using embedding reconstruction and semi-supervised transfer learning models.",
+    image: "assets/papers/thesis.png",
     links: []
   }
 ];
@@ -212,13 +217,16 @@ const renderTimeline = () => {
       const locHTML = item.location
         ? `<span class="news-loc"><i class="fa-solid fa-location-dot"></i> ${item.location}</span>`
         : "";
+      const imgHTML = item.image
+        ? `<img src="${item.image}" alt="${item.title}" class="news-thumb-img">`
+        : `<div class="empty-image-placeholder">
+             <span class="placeholder-icon"><i class="fa-regular fa-image"></i></span>
+           </div>`;
 
       return `
         <div class="news_info_box scroll_fade_down reveal-item">
           <div class="news_img">
-            <div class="empty-image-placeholder">
-              <span class="placeholder-icon"><i class="fa-regular fa-image"></i></span>
-            </div>
+            ${imgHTML}
           </div>
           <div class="news_text">
             <span class="news-badge badge-${item.type}">${categoryLabel}</span>
@@ -340,10 +348,14 @@ const renderPublications = () => {
           .join("")}
            </div>`
         : "";
+      const imageHTML = pub.image
+        ? `<img src="${pub.image}" alt="${pub.title}" class="pub-thumb-img">`
+        : "";
 
       return `
         <div class="movie_box reveal-item">
           <div class="movie_thum_placeholder">
+            ${imageHTML}
             <div class="movie-card-overlay">
               <span class="movie-card-number">0${idx + 1}</span>
               <span class="movie-play-icon"><i class="fa-solid fa-file-pdf"></i></span>
