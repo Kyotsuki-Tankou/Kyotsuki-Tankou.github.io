@@ -19,6 +19,18 @@
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- Early theme initialization to prevent flash -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
     <!-- Inline Loader Script enforcing minimum 0.5s visibility -->
     <script>
         const loaderStartTime = Date.now();
@@ -75,7 +87,7 @@
     <nav class="menu_box">
         |<a href="#top">top</a>|<a href="#intro">profile</a>|<a href="#news">news</a>|<a
             href="#publications">publications</a>|<a href="#patents-awards">Patents & Awards</a>|<a href="#contact">get
-            in touch</a>|
+            in touch</a>|<button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode" title="Toggle Theme"><i class="fa-solid fa-moon"></i></button>|
     </nav>
 
     <!-- Hero / First View Wrapper -->

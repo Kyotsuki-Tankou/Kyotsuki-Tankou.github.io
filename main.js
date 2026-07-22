@@ -593,9 +593,68 @@ const initBackgroundTransitions = () => {
 };
 
 // ==========================================
+// DARK / LIGHT THEME TOGGLE LOGIC
+// ==========================================
+const initThemeToggle = () => {
+  const toggleBtn = document.getElementById("theme-toggle");
+  if (!toggleBtn) return;
+
+  const getSystemTheme = () =>
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+
+  const getCurrentTheme = () => {
+    return document.documentElement.getAttribute("data-theme") ||
+           localStorage.getItem("theme") ||
+           getSystemTheme();
+  };
+
+  const updateIcon = (theme) => {
+    const icon = toggleBtn.querySelector("i");
+    if (!icon) return;
+    if (theme === "dark") {
+      icon.className = "fa-solid fa-sun";
+      toggleBtn.setAttribute("title", "Switch to Light Mode");
+    } else {
+      icon.className = "fa-solid fa-moon";
+      toggleBtn.setAttribute("title", "Switch to Dark Mode");
+    }
+  };
+
+  const setTheme = (theme, save = true) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    if (save) {
+      localStorage.setItem("theme", theme);
+    }
+    updateIcon(theme);
+  };
+
+  // Sync icon on init
+  const currentTheme = getCurrentTheme();
+  updateIcon(currentTheme);
+
+  // Toggle button click listener
+  toggleBtn.addEventListener("click", () => {
+    const activeTheme = document.documentElement.getAttribute("data-theme") || getSystemTheme();
+    const nextTheme = activeTheme === "dark" ? "light" : "dark";
+    setTheme(nextTheme, true);
+  });
+
+  // Listen to OS theme changes if user hasn't set an explicit override
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      const newTheme = e.matches ? "dark" : "light";
+      setTheme(newTheme, false);
+    }
+  });
+};
+
+// ==========================================
 // INIT APP
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
+  // Theme Toggle Initialization
+  initThemeToggle();
+
   // Render components
   renderTimeline();
   renderPublications();
